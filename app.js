@@ -4,13 +4,18 @@ function sortear() {
   let numeroFinal = parseInt(document.getElementById("ate").value);
   let listaDeNumeros = [];
   let numero;
+  let diferecaNumeros = numeroFinal - numeroInicial;
 
    if(quantidade < 0 || numeroInicial < 0 || numeroFinal <0 ){
      document.getElementById('resultado').innerHTML = '<label class="texto__paragrafo">Você inseriu números inválidos</label>'
      alteraBotao();
      return;
    
-   }
+   }else if(diferecaNumeros <quantidade){
+     document.getElementById('resultado').innerHTML = '<label class="texto__paragrafo">Quantidade de números é igual ou inferior ao intervalo de números </label>'
+     alteraBotao();
+     return;
+   }else{
 
   for (let i = 0; i < quantidade; i++) {
     numero = obterNumeroAleatorio(numeroInicial, numeroFinal);
@@ -26,6 +31,7 @@ function sortear() {
     
   }
   alteraBotao();
+}
 }
 
 function obterNumeroAleatorio(min, max) {
