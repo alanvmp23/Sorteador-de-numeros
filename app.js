@@ -5,6 +5,13 @@ function sortear() {
   let listaDeNumeros = [];
   let numero;
 
+   if(quantidade < 0 || numeroInicial < 0 || numeroFinal <0 ){
+     document.getElementById('resultado').innerHTML = '<label class="texto__paragrafo">Você inseriu números inválidos</label>'
+     alteraBotao();
+     return;
+   
+   }
+
   for (let i = 0; i < quantidade; i++) {
     numero = obterNumeroAleatorio(numeroInicial, numeroFinal);
 
